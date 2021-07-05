@@ -18,15 +18,15 @@ class Usuarios extends Controller
         $request->validate(['nombre' => ['required', 'string', 'max:255'],
         'apelPat' => ['required', 'string', 'max:255'],
         'apelMat' => ['required', 'string', 'max:255'],
-        'Usuario' => ['required', 'string', 'max:20', 'unique:users'],
-        'password' => ['required', 'string', 'min:8', 'confirmed'],
+        'usuario' => ['required', 'string', 'max:20', 'unique:users'],
+        'password' => ['required', 'string', 'min:8'],
     ]);
         User::create([
             'nombre' => $request['nombre'],
             'apelPat' =>  $request['apelPat'],
             'apelMat'=> $request['apelMat'],
             'usuario' => $request['usuario'],
-            'password' => Hash::make($request['contraseña']),
+            'password' => Hash::make($request['password']),
         ]);
         return redirect()->route('home');
     }

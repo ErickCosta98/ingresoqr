@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('contenido')
+
 <a href="{{ route('userList')}}">Usuarios</a>
 
-<form action="{{ route('registro.user') }}" method="post">
+<form action="{{ route('userSave') }}" method="post">
     @csrf
     <label for="">Nombre</label>
     <input type="text" name="nombre" id="nombre">
@@ -18,7 +19,7 @@
     <input type="text" name="usuario" id="usuario">
     <br>
     <label for="">Contraseña</label>
-    <input type="text" name="contraseña" id="contraseña">
+    <input type="text" name="password" id="password">
     <br>
     <input type="submit" value="Guardar">
 

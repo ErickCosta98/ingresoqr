@@ -15,16 +15,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/','welcome');
-Route::view('/registro', 'registro')->name('registro');
+
 Route::view('/home','home')->name('home');
-
-Route::get('/usuarios',[Usuarios::class,'userList'])->name('userList');
-
-Route::post('/registro/gUser',[Usuarios::class,'gUser'])->name('registro.user');
 
 Route::post('/',[Usuarios::class,'authLog'])->name('loging');
 
 Route::post('/logout',[Usuarios::class,'logout'])->name('logout');
+
+Route::get('/usuarios',[Usuarios::class,'userList'])->name('userList');
+
+Route::view('/usuarios/registro', 'registro')->name('userRegistro');
+
+Route::post('/usuarios/guardar',[Usuarios::class,'gUser'])->name('userSave');
 
 Route::get('/usuarios/edit/{id}',[Usuarios::class,'userEdit'])->name('userEdit');
 

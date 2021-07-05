@@ -6,7 +6,7 @@
       <h3 style="text-align: center;">Diccionario</h3>
     </div>    
     <div class="row">
-    <a href="{{ route('registro') }}" class="btn btn-primary">Nuevo registro</a>
+    <a href="{{ route('userRegistro') }}" class="btn btn-primary">Nuevo registro</a>
     <a href="{{ route('home') }}" class="btn btn-primary">home</a>
     
     <br>
