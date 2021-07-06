@@ -41,7 +41,7 @@
             <button class="w-100 btn btn-lg btn-primary" type="submit">Iniciar sesion</button>
             {{-- <p class="mt-5 mb-3 text-muted">&copy; </p> --}}
           </form>
-          @dd($errors)
+          {{-- @dd($errors) --}}
       </main>
 </div>
 </body>

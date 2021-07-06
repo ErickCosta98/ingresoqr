@@ -19,7 +19,7 @@
     <input type="text" name="apelMat" id="apelMat" value="{{$user->apelMat}}">
     <br>
     <label for="">usuario</label>
-    <input type="text" name="usuario" id="usuario" value="{{$user->apelMat}}">
+    <input type="text" name="usuario" id="usuario" value="{{$user->usuario}}">
     <br>
     <input type="submit" value="Guardar">
 

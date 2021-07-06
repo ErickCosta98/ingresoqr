@@ -36,16 +36,19 @@ class Usuarios extends Controller
             'usuario' => ['required', 'string', 'max:20'],
             'password' => ['required', 'string', 'min:8'],
         ]);
-       if(Auth::attempt(['usuario' => $credenciales['usuario'], 'password' => $credenciales['password']])){
         $status =   User::select()->where('usuario',$credenciales['usuario'])->value('estatus');
-        $request->session()->regenerate();
         if($status!=1){
             throw ValidationValidationException::withMessages([
                 'usuario' => __('auth.failed')
             ]);
-        }
+        }else{
+       if(Auth::attempt(['usuario' => $credenciales['usuario'], 'password' => $credenciales['password']])){
+        
+        $request->session()->regenerate();
+        
         return redirect()->route('home');
         }
+    }
         throw ValidationValidationException::withMessages([
             'usuario' => __('auth.failed')
         ]);
