@@ -14,28 +14,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/','welcome');
+Route::view('/','welcome')->name('welcome');
 
-Route::view('/home','home')->name('home');
+Route::view('/home','home')->name('home')->middleware('auth');
 
 Route::post('/',[Usuarios::class,'authLog'])->name('loging');
 
-Route::post('/logout',[Usuarios::class,'logout'])->name('logout');
+Route::post('/logout',[Usuarios::class,'logout'])->name('logout')->middleware('auth');
 
-Route::get('/usuarios',[Usuarios::class,'userList'])->name('userList');
+Route::get('/usuarios',[Usuarios::class,'userList'])->name('userList')->middleware('auth');
 
-Route::view('/usuarios/registro', 'registro')->name('userRegistro');
+Route::view('/usuarios/registro', 'registro')->name('userRegistro')->middleware('auth');
 
-Route::post('/usuarios/guardar',[Usuarios::class,'gUser'])->name('userSave');
+Route::post('/usuarios/guardar',[Usuarios::class,'gUser'])->name('userSave')->middleware('auth');
 
-Route::get('/usuarios/edit/{id}',[Usuarios::class,'userEdit'])->name('userEdit');
+Route::get('/usuarios/edit/{id}',[Usuarios::class,'userEdit'])->name('userEdit')->middleware('auth');
 
-Route::put('/usuarios/update/{user}',[Usuarios::class,'userUpdate'])->name('userUpdate');
+Route::put('/usuarios/update/{user}',[Usuarios::class,'userUpdate'])->name('userUpdate')->middleware('auth');
 
-Route::post('/usuarios/updatepassword',[Usuarios::class,'userUpdatePassword'])->name('userUpdatepass');
+Route::post('/usuarios/updatepassword',[Usuarios::class,'userUpdatePassword'])->name('userUpdatepass')->middleware('auth');
 
-Route::get('/usuarios/userdelete/{id}', [Usuarios::class,'userDelete'])->name('userDelete');
+Route::get('/usuarios/userdelete/{id}', [Usuarios::class,'userDelete'])->name('userDelete')->middleware('auth');
 
-Route::get('/usuarios/useractive/{id}', [Usuarios::class,'userActive'])->name('userActive');
+Route::get('/usuarios/useractive/{id}', [Usuarios::class,'userActive'])->name('userActive')->middleware('auth');
 
 ?>
