@@ -23,7 +23,7 @@
     <br>
     @foreach ($roles as $rol)
         <label class="checkbox-inline">
-            <input type="checkbox" name="roles[]" id="roles[]" value="{{$rol->id}}" <?php if(strpos($roleN,$rol['name'])) echo 'checked'?>> {{$rol['name']}}
+            <input type="checkbox" name="roles[]" id="roles[]" value="{{$rol->id}}" <?php foreach($roleN as $key => $rolen){ if($rolen == $rol['name']){ echo 'checked';} };  ?>> {{$rol['name']}}
             </label>
         @endforeach
         <br>
@@ -34,7 +34,7 @@
     @csrf
     <input id="id" name="id" type="hidden" value="{{$user->id}}">
     <label for="">Contraseña</label>
-    <input type="text" name="contraseña" id="contraseña" ">
+    <input type="text" name="contraseña" id="contraseña">
     <br>
     <input type="submit" value="Guardar">
 </form>

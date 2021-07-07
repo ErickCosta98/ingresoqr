@@ -34,7 +34,7 @@ public function userRegistro(){
             'usuario' => $request['usuario'],
             'password' => Hash::make($request['password']),
         ])->syncRoles($request['roles']);
-        return redirect()->route('home');
+        return redirect()->route('userRegistro');
     }
 
     public function authLog(Request $request){
@@ -78,7 +78,7 @@ public function userRegistro(){
     public function userEdit($id){
         $user = User::find($id);
         $roleN = $user->getRoleNames();
-        // return $roleN;
+        //  return $roleN;
         $roles = Role::all();
         // return $user;
         return view('editUser',compact('user','roles','roleN'));

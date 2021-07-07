@@ -10,22 +10,22 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="pcss/login.css">
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+    {{-- <link rel="stylesheet" href="pcss/login.css"> --}}
 </head>
 <body class="text-center">
   
       <main class="form-signin">
           <form action="{{ route('loging') }}" method="POST">
             @csrf
-            <img class="mb-4" src="img/bootstrap-logo.svg" alt="" width="72" height="57">
+            {{-- <img class="mb-4" src="img/bootstrap-logo.svg" alt="" width="72" height="57"> --}}
             <h1 class="h3 mb-3 fw-normal">A</h1>
         
             <div class="form-floating">
