@@ -31,6 +31,7 @@
     </thead>
     <tbody>
     @foreach ( $users as $user )
+    @if (Auth::user()->usuario != $user->usuario )      
         <tr>
         <td>{{$user->id}}</td>
         <td>{{$user->usuario}}</td>
@@ -46,6 +47,7 @@
         @else
         <td><a id='btnActive' href="{{ route('userActive', $user->id) }}" class="btn btn-success btn-block" >Activar</a></td>
         @endif
+    @endif
     @endforeach
         </tr>
     </tbody>

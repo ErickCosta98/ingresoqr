@@ -16,35 +16,35 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/','welcome')->name('welcome');
 
-Route::view('/home','home')->name('home')->middleware('auth');
+Route::view('/home','home')->name('home')->middleware('auth')->middleware('can:home');
 
 Route::post('/',[Usuarios::class,'authLog'])->name('loging');
 
 Route::post('/logout',[Usuarios::class,'logout'])->name('logout')->middleware('auth');
 
-Route::get('/usuarios',[Usuarios::class,'userList'])->name('userList')->middleware('auth');
+Route::get('/usuarios',[Usuarios::class,'userList'])->name('userList')->middleware('can:userAdmin');
 
-Route::get('/usuarios/registro',[Usuarios::class,'userRegistro'])->name('userRegistro')->middleware('auth');
+Route::get('/usuarios/registro',[Usuarios::class,'userRegistro'])->name('userRegistro')->middleware('can:userAdmin');
 
-Route::post('/usuarios/guardar',[Usuarios::class,'gUser'])->name('userSave')->middleware('auth');
+Route::post('/usuarios/guardar',[Usuarios::class,'gUser'])->name('userSave')->middleware('can:userAdmin');
 
-Route::get('/usuarios/edit/{id}',[Usuarios::class,'userEdit'])->name('userEdit')->middleware('auth');
+Route::get('/usuarios/edit/{id}',[Usuarios::class,'userEdit'])->name('userEdit')->middleware('can:userAdmin');
 
-Route::put('/usuarios/update/{user}',[Usuarios::class,'userUpdate'])->name('userUpdate')->middleware('auth');
+Route::put('/usuarios/update/{user}',[Usuarios::class,'userUpdate'])->name('userUpdate')->middleware('can:userAdmin');
 
-Route::post('/usuarios/updatepassword',[Usuarios::class,'userUpdatePassword'])->name('userUpdatepass')->middleware('auth');
+Route::post('/usuarios/updatepassword',[Usuarios::class,'userUpdatePassword'])->name('userUpdatepass')->middleware('can:userAdmin');
 
-Route::get('/usuarios/userdelete/{id}', [Usuarios::class,'userDelete'])->name('userDelete')->middleware('auth');
+Route::get('/usuarios/userdelete/{id}', [Usuarios::class,'userDelete'])->name('userDelete')->middleware('can:userAdmin');
 
-Route::get('/usuarios/useractive/{id}', [Usuarios::class,'userActive'])->name('userActive')->middleware('auth');
+Route::get('/usuarios/useractive/{id}', [Usuarios::class,'userActive'])->name('userActive')->middleware('can:userAdmin');
 
-Route::post('/usuarios',[Usuarios::class,'busqueda'])->name('userSearch')->middleware('auth');
-Route::get('/usuarios/rolespermisos', [Usuarios::class,'rolespermisos'])->name('rolespermisos')->middleware('auth');
+Route::post('/usuarios',[Usuarios::class,'busqueda'])->name('userSearch')->middleware('can:userAdmin');
+Route::get('/usuarios/rolespermisos', [Usuarios::class,'rolespermisos'])->name('rolespermisos')->middleware('can:userAdmin');
 
-Route::post('/usuarios/rolespermisos/nuevoRol',[Usuarios::class,'crearRol'])->name('nuevoRol')->middleware('auth');
+Route::post('/usuarios/rolespermisos/nuevoRol',[Usuarios::class,'crearRol'])->name('nuevoRol')->middleware('can:userAdmin');
 // Route::post('/usuarios/rolespermisos/nuevoPermiso',[Usuarios::class,'crearPermiso'])->name('nuevoPermiso')->middleware('auth');
-Route::get('/usuarios/rolespermisos/editRol/{id}',[Usuarios::class,'editRol'])->name('editRol')->middleware('auth');
-Route::post('/usuarios/rolespermisos/updateRol',[Usuarios::class,'updateRol'])->name('updateRol')->middleware('auth');
+Route::get('/usuarios/rolespermisos/editRol/{id}',[Usuarios::class,'editRol'])->name('editRol')->middleware('can:userAdmin');
+Route::post('/usuarios/rolespermisos/updateRol',[Usuarios::class,'updateRol'])->name('updateRol')->middleware('can:userAdmin');
 
 
 ?>
