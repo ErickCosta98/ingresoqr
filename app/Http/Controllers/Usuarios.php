@@ -9,10 +9,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException as ValidationValidationException;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class Usuarios extends Controller
 {
     //
+public function userRegistro(){
+    $roles = Role::all();
+    return view('registro',compact('roles'));
+}
 
     public function gUser(Request $request){
         $request->validate(['nombre' => ['required', 'string', 'max:255'],
@@ -27,7 +33,7 @@ class Usuarios extends Controller
             'apelMat'=> $request['apelMat'],
             'usuario' => $request['usuario'],
             'password' => Hash::make($request['password']),
-        ]);
+        ])->syncRoles($request['roles']);
         return redirect()->route('home');
     }
 
@@ -42,7 +48,7 @@ class Usuarios extends Controller
                 'usuario' => __('auth.failed')
             ]);
         }else{
-       if(Auth::attempt(['usuario' => $credenciales['usuario'], 'password' => $credenciales['password']])){
+        if(Auth::attempt(['usuario' => $credenciales['usuario'], 'password' => $credenciales['password']])){
         
         $request->session()->regenerate();
         
@@ -71,8 +77,11 @@ class Usuarios extends Controller
 
     public function userEdit($id){
         $user = User::find($id);
+        $roleN = $user->getRoleNames();
+        // return $roleN;
+        $roles = Role::all();
         // return $user;
-        return view('editUser',compact('user'));
+        return view('editUser',compact('user','roles','roleN'));
     }
 
     public function userUpdate(Request $request ,User $user ){
@@ -82,6 +91,7 @@ class Usuarios extends Controller
         $user->apelMat = $request->apelMat;
 
         $user->save();
+        $user->syncRoles($request['roles']);
     return redirect()->route('userList');
     }
 
@@ -97,5 +107,51 @@ class Usuarios extends Controller
     public function userActive($id){
         User::where('id',$id)->update(['estatus' => '1']);
         return redirect()->route('userList');
+    }
+
+
+    public function busqueda(Request $request){
+        
+        $users = User::where('nombre','LIKE','%'.$request['busqueda'].'%')->orWhere('usuario','LIKE','%'.$request['busqueda'].'%')->paginate();
+
+        return view('userList',compact('users'));
+    }
+    public function rolespermisos(){
+        $roles= Role::all();
+        $permisos = Permission::all();
+
+        return view('rolespermisos',compact('roles','permisos'));
+
+    }
+    public function crearRol(Request $request){
+        $role = Role::create(['name' => $request['name']]);
+
+        $role->syncPermissions($request['permisos']);
+
+        return redirect()->route('rolespermisos');
+    }
+
+    public function crearPermiso(Request $request){
+        Permission::create(['name' => $request['name']]);
+
+        return redirect()->route('rolespermisos');
+
+    }
+
+    public function editRol($id){
+        $role = Role::find($id);
+        $permN = $role->getPermissionNames();
+        $permisos = Permission::all();
+
+
+        return view('editRole',compact('role','permN','permisos'));
+    }
+
+    public function updateRol(Request $request){
+        Role::where('id',$request->id)->update(['name' => $request->name ]);
+        $role = Role::find($request->id);
+
+        $role->syncPermissions($request['permisos']);
+        return redirect()->route('rolespermisos');
     }
 }

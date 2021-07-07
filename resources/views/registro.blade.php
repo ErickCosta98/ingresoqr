@@ -21,10 +21,18 @@
     <label for="">Contraseña</label>
     <input type="text" name="password" id="password">
     <br>
+    <br>
+    
+        @foreach ($roles as $rol)
+        <label class="checkbox-inline">
+            <input type="checkbox" name="roles[]" id="roles[]" value="{{$rol->id}}" >{{$rol['name']}}
+            </label>
+        @endforeach
+    <br>
     <input type="submit" value="Guardar">
 
 </form>
-@dd($errors)
+{{-- @dd($errors) --}}
 
 
 @endsection

@@ -22,6 +22,6 @@ class UserSeeder extends Seeder
             'apelMat'=> 'Costa',
             'usuario' => 'Erick@costa',
             'password' => Hash::make('Ulili2098'),
-        ])->assignRole('Admin');
+        ])->syncRoles([1,2]);
     }
 }

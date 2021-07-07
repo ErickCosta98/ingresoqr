@@ -3,17 +3,20 @@
 @section('contenido')
 <div class="container">
     <div class="row">
-      <h3 style="text-align: center;">Diccionario</h3>
+      <h3 style="text-align: center;">Lista de usuarios</h3>
     </div>    
     <div class="row">
     <a href="{{ route('userRegistro') }}" class="btn btn-primary">Nuevo registro</a>
     <a href="{{ route('home') }}" class="btn btn-primary">home</a>
+    <a href="{{ route('rolespermisos')}}" class="btn btn-primary">rolespermisos</a>
+
+  </div>
+    <form action="{{ route('userSearch') }}"   method="post">
+      @csrf
+    <b class="h5">Nombre:</b> <input class="form" type="text" name="busqueda" id="busqueda" value="{{old('busqueda')}}">
+    <input name="enviar" id="enviar" class="btn btn-info" type="submit" value="Buscar">
     
-    <br>
-    <br>
-    {{-- <b class="h4">Nombre:</b> <input class="form " type="text" name="campo" id="campo">
-    <input name="enviar" id="enviar" class="btn btn-info" type="submit" value="Buscar"> --}}
-    </div>
+  </form>
     <div class="row table-reponsive">
   <table class="table table-light table-striped">
     <thead class="thead-light">

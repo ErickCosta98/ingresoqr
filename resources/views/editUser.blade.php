@@ -21,6 +21,12 @@
     <label for="">usuario</label>
     <input type="text" name="usuario" id="usuario" value="{{$user->usuario}}">
     <br>
+    @foreach ($roles as $rol)
+        <label class="checkbox-inline">
+            <input type="checkbox" name="roles[]" id="roles[]" value="{{$rol->id}}" <?php if(strpos($roleN,$rol['name'])) echo 'checked'?>> {{$rol['name']}}
+            </label>
+        @endforeach
+        <br>
     <input type="submit" value="Guardar">
 
 </form>

@@ -24,7 +24,7 @@ Route::post('/logout',[Usuarios::class,'logout'])->name('logout')->middleware('a
 
 Route::get('/usuarios',[Usuarios::class,'userList'])->name('userList')->middleware('auth');
 
-Route::view('/usuarios/registro', 'registro')->name('userRegistro')->middleware('auth');
+Route::get('/usuarios/registro',[Usuarios::class,'userRegistro'])->name('userRegistro')->middleware('auth');
 
 Route::post('/usuarios/guardar',[Usuarios::class,'gUser'])->name('userSave')->middleware('auth');
 
@@ -37,5 +37,14 @@ Route::post('/usuarios/updatepassword',[Usuarios::class,'userUpdatePassword'])->
 Route::get('/usuarios/userdelete/{id}', [Usuarios::class,'userDelete'])->name('userDelete')->middleware('auth');
 
 Route::get('/usuarios/useractive/{id}', [Usuarios::class,'userActive'])->name('userActive')->middleware('auth');
+
+Route::post('/usuarios',[Usuarios::class,'busqueda'])->name('userSearch')->middleware('auth');
+Route::get('/usuarios/rolespermisos', [Usuarios::class,'rolespermisos'])->name('rolespermisos')->middleware('auth');
+
+Route::post('/usuarios/rolespermisos/nuevoRol',[Usuarios::class,'crearRol'])->name('nuevoRol')->middleware('auth');
+// Route::post('/usuarios/rolespermisos/nuevoPermiso',[Usuarios::class,'crearPermiso'])->name('nuevoPermiso')->middleware('auth');
+Route::get('/usuarios/rolespermisos/editRol/{id}',[Usuarios::class,'editRol'])->name('editRol')->middleware('auth');
+Route::post('/usuarios/rolespermisos/updateRol',[Usuarios::class,'updateRol'])->name('updateRol')->middleware('auth');
+
 
 ?>
