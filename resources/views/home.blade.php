@@ -7,5 +7,6 @@
 @can('userAdmin')
 <a href="{{ route('userList')}}">Usuarios</a>
 @endcan
+<a href="{{ route('userList')}}">Alumnos</a>
 <form action="{{ route('logout') }}" method="post"> @csrf <a href="#" onclick="this.closest('form').submit()">Logout</a></form>
 @endsection

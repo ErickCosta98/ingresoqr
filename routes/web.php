@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Alumnos;
 use App\Http\Controllers\Usuarios;
 use Illuminate\Support\Facades\Route;
 
@@ -16,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/','welcome')->name('welcome');
 
-Route::view('/home','home')->name('home')->middleware('auth')->middleware('can:home');
-
 Route::post('/',[Usuarios::class,'authLog'])->name('loging');
+
+Route::view('/home','home')->name('home')->middleware('auth')->middleware('can:home');
 
 Route::post('/logout',[Usuarios::class,'logout'])->name('logout')->middleware('auth');
 
@@ -39,12 +40,16 @@ Route::get('/usuarios/userdelete/{id}', [Usuarios::class,'userDelete'])->name('u
 Route::get('/usuarios/useractive/{id}', [Usuarios::class,'userActive'])->name('userActive')->middleware('can:userAdmin');
 
 Route::post('/usuarios',[Usuarios::class,'busqueda'])->name('userSearch')->middleware('can:userAdmin');
+
 Route::get('/usuarios/rolespermisos', [Usuarios::class,'rolespermisos'])->name('rolespermisos')->middleware('can:userAdmin');
 
 Route::post('/usuarios/rolespermisos/nuevoRol',[Usuarios::class,'crearRol'])->name('nuevoRol')->middleware('can:userAdmin');
 // Route::post('/usuarios/rolespermisos/nuevoPermiso',[Usuarios::class,'crearPermiso'])->name('nuevoPermiso')->middleware('auth');
 Route::get('/usuarios/rolespermisos/editRol/{id}',[Usuarios::class,'editRol'])->name('editRol')->middleware('can:userAdmin');
+
 Route::post('/usuarios/rolespermisos/updateRol',[Usuarios::class,'updateRol'])->name('updateRol')->middleware('can:userAdmin');
+
+Route::get('/alumnos',[Alumnos::class,'listAlumnos'])->name('userList')->middleware('auth');
 
 
 ?>

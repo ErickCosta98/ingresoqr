@@ -12,7 +12,7 @@
     <br>
     @foreach ($permisos as $permiso)
         <label class="checkbox-inline">
-            <input type="checkbox" name="permisos[]" id="permisos[]" value="{{$permiso->id}}" <?php if((strpos$permN,$permiso['name'])) echo 'checked'?> >{{$permiso['name']}}
+            <input type="checkbox" name="permisos[]" id="permisos[]" value="{{$permiso->id}}" <?php if(strpos($permN,$permiso['name'])) echo 'checked'?> >{{$permiso['name']}}
             </label>
         @endforeach
     
