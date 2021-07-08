@@ -4,7 +4,7 @@
 
 <a href="{{ route('userList')}}">Usuarios</a>
 
-<form action="{{ route('userSave') }}" method="post">
+<form  action="{{ route('userSave') }}" method="post">
     @csrf
     <label for="">Nombre</label>
     <input type="text" name="nombre" id="nombre">
