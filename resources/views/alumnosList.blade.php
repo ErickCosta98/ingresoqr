@@ -52,6 +52,7 @@
         </tr>
     </tbody>
   </table>
+  {{$alumnos->links()}}
     </div>
   </div>
 
