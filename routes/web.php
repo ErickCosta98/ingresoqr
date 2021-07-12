@@ -50,4 +50,12 @@ Route::get('/alumnos',[Alumnos::class,'listAlumnos'])->name('alumnoList')->middl
 
 Route::view('/alumnos/nuevo', 'alumnos.registro')->name('regisAlumno');
 
+Route::post('/alumnos/save', [Alumnos::class,'save'])->name('alumnoSave');
+
+Route::get('/alumno/edit/{id}', [Alumnos::class,'dtUpdate'])->name('alumnoEdit');
+Route::get('/alumno/delete/{id}', [Alumnos::class,'delete'])->name('alumnoDelete');
+Route::put('/alumnoss/update/{alumno}',[Alumnos::class,'update'])->name('alumnoUpdate');
+
+
+
 ?>

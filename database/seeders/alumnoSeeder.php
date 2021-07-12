@@ -17,109 +17,109 @@ class alumnoSeeder extends Seeder
     {
         //
         Alumnos::create([
-            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'MTR'),
+            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'ALM'),
             'nombre' => 'erick',
             'apelPat'=> 'hernandez',
             'apelMat' => 'cost',
         ]);
         Alumnos::create([
-            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'MTR'),
+            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'ALM'),
             'nombre' => 'erick',
             'apelPat'=> 'hernandez',
             'apelMat' => 'cost',
         ]);
         Alumnos::create([
-            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'MTR'),
+            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'ALM'),
             'nombre' => 'erick',
             'apelPat'=> 'hernandez',
             'apelMat' => 'cost',
         ]);
         Alumnos::create([
-            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'MTR'),
+            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'ALM'),
             'nombre' => 'erick',
             'apelPat'=> 'hernandez',
             'apelMat' => 'cost',
         ]);
         Alumnos::create([
-            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'MTR'),
+            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'ALM'),
             'nombre' => 'erick',
             'apelPat'=> 'hernandez',
             'apelMat' => 'cost',
         ]);
         Alumnos::create([
-            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'MTR'),
+            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'ALM'),
             'nombre' => 'erick',
             'apelPat'=> 'hernandez',
             'apelMat' => 'cost',
         ]);
         Alumnos::create([
-            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'MTR'),
+            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'ALM'),
             'nombre' => 'erick',
             'apelPat'=> 'hernandez',
             'apelMat' => 'cost',
         ]);
         Alumnos::create([
-            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'MTR'),
+            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'ALM'),
             'nombre' => 'erick',
             'apelPat'=> 'hernandez',
             'apelMat' => 'cost',
         ]);
         Alumnos::create([
-            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'MTR'),
+            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'ALM'),
             'nombre' => 'erick',
             'apelPat'=> 'hernandez',
             'apelMat' => 'cost',
         ]);
         Alumnos::create([
-            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'MTR'),
+            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'ALM'),
             'nombre' => 'erick',
             'apelPat'=> 'hernandez',
             'apelMat' => 'cost',
         ]);
         Alumnos::create([
-            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'MTR'),
+            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'ALM'),
             'nombre' => 'erick',
             'apelPat'=> 'hernandez',
             'apelMat' => 'cost',
         ]);
         Alumnos::create([
-            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'MTR'),
+            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'ALM'),
             'nombre' => 'erick',
             'apelPat'=> 'hernandez',
             'apelMat' => 'cost',
         ]);
         Alumnos::create([
-            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'MTR'),
+            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'ALM'),
             'nombre' => 'erick',
             'apelPat'=> 'hernandez',
             'apelMat' => 'cost',
         ]);
         Alumnos::create([
-            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'MTR'),
+            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'ALM'),
             'nombre' => 'erick',
             'apelPat'=> 'hernandez',
             'apelMat' => 'cost',
         ]);
         Alumnos::create([
-            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'MTR'),
+            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'ALM'),
             'nombre' => 'erick',
             'apelPat'=> 'hernandez',
             'apelMat' => 'cost',
         ]);
         Alumnos::create([
-            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'MTR'),
+            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'ALM'),
             'nombre' => 'erick',
             'apelPat'=> 'hernandez',
             'apelMat' => 'cost',
         ]);
         Alumnos::create([
-            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'MTR'),
+            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'ALM'),
             'nombre' => 'erick',
             'apelPat'=> 'hernandez',
             'apelMat' => 'cost',
         ]);
         Alumnos::create([
-            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'MTR'),
+            'matricula'=>  Helper::IDGenerator(new Alumnos,'matricula',8,'ALM'),
             'nombre' => 'erick',
             'apelPat'=> 'hernandez',
             'apelMat' => 'cost',

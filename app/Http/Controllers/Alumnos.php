@@ -10,29 +10,46 @@ class Alumnos extends Controller
 {
     //
     public function listAlumnos(){
-        $alumnos = ModelsAlumnos::orderBy('id','desc')->get();
+        $alumnos = ModelsAlumnos::where('estado','1')->get();
         // return $alumnos;
         return view('alumnos.alumnosList',compact('alumnos'));
     }
 
-    function save(Request $request){
+    public function save(Request $request){
         /** Validate name field */
-        $request->validate([
-            'name'=>'required',
-        ]);
+        // return $request;
 
         $alumno_id = Helper::IDGenerator(new ModelsAlumnos, 'matricula', 8 , 'MTR'); /** Generate id */
         $q = new ModelsAlumnos();
         $q->matricula = $alumno_id;
         $q->nombre = $request->nombre;
+        $q->apelPat = $request->apelPat;
+        $q->apelMat = $request->apelMat;
+        $q->automovil = $request->auto;
         $save =  $q->save();
-        return $alumno_id;
+        // return $alumno_id;
         if($save){
-            return back()->with('success','New studen has been added');
+            return redirect()->route('regisAlumno')->with('info','New studen has been added');
         }else{
-            return back()->with('faile','Something went wrong');
+            return redirect()->route('regisAlumno')->with('info','Something went wrong');
         }
+    }
+    public function dtUpdate($id){
+        $alumno= ModelsAlumnos::find($id);
+        return view('alumnos.edit',compact('alumno'));
+    }
+    public function update(Request $request, ModelsAlumnos $alumno) {
+        // return $alumno;
+        $alumno->nombre = $request->nombre;
+        $alumno->apelPat = $request->apelPat;
+        $alumno->apelMat = $request->apelMat;
+        $alumno->automovil = $request->auto;
+        $alumno->save();
+        return redirect()->route('alumnoList');
+    }
 
-
+    public function delete($id){
+        ModelsAlumnos::where('id',$id)->update(['estado' => '0']);
+        return redirect()->route('alumnoList');
     }
 }

@@ -16,10 +16,10 @@
   <table class="table table-light table-striped" id="tabla">
     <thead class="thead-light">
       <tr>
-        <th>id</th>
+        {{-- <th>id</th> --}}
         <th>Matricula</th>
         <th>Nombre</th>
-        <th>estado</th>
+        <th>Automovil</th>
         <th>modificar</th>
         <th>Modificar estado</th>
       </tr>
@@ -27,20 +27,16 @@
     <tbody>
     @foreach ( $alumnos as $alumno )
         <tr>
-        <td>{{$alumno->id}}</td>
+        {{-- <td>{{$alumno->id}}</td> --}}
         <td>{{$alumno->matricula}}</td>
         <td>{{$alumno->nombre}}</td>
-        @if ($alumno->estado == 1)
-            <td>Activo</td>
+        @if ($alumno->automovil == 1)
+            <td><label >si</label></td>
         @else
-        <td>Inactivo</td>
+        <td><label >no</label></td>
         @endif
-        <td><a href="{{ route('userEdit', $alumno->id) }}" class="btn btn-info btn-block">Editar</a></td>  
-        @if ($alumno->estado == 1)
-        <td><a id='btnBorrar' href="{{ route('userDelete', $alumno->id) }}" class="btn btn-danger btn-block" >Desactivar</a></td>
-        @else
-        <td><a id='btnActive' href="{{ route('userActive', $alumno->id) }}" class="btn btn-success btn-block" >Activar</a></td>
-        @endif
+        <td><a href="{{ route('alumnoEdit', $alumno->id) }}" class="btn btn-info btn-block">Editar</a></td>  
+        <td><a id='btnBorrar' href="{{ route('alumnoDelete', $alumno->id) }}" class="btn btn-danger btn-block" >eliminar</a></td>
     @endforeach
         </tr>
     </tbody>
