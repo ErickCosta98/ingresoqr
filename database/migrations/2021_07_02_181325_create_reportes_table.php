@@ -19,7 +19,7 @@ class CreateReportesTable extends Migration
             $table->time('entrada');
             $table->time('salida');
             $table->unsignedBigInteger('fk_alumnoid');
-            $table->foreign('fk_alumnoid')->references('id_alumno')->on('alumnos');
+            $table->foreign('fk_alumnoid')->references('id')->on('alumnos');
             $table->timestamps();
         });
     }

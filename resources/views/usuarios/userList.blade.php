@@ -11,14 +11,8 @@
     <a href="{{ route('rolespermisos')}}" class="btn btn-primary">rolespermisos</a>
 
   </div>
-    <form action="{{ route('userSearch') }}"   method="post">
-      @csrf
-    <b class="h5">Nombre:</b> <input class="form" type="text" name="busqueda" id="busqueda" value="{{old('busqueda')}}">
-    <input name="enviar" id="enviar" class="btn btn-info" type="submit" value="Buscar">
-    
-  </form>
     <div class="row table-reponsive">
-  <table class="table table-light table-striped">
+  <table class="table table-light table-striped" id="tabla">
     <thead class="thead-light">
       <tr>
         <th>id</th>
@@ -55,4 +49,15 @@
     </div>
   </div>
 
+@endsection
+@section('js')
+    <script>
+      $(document).ready(function() {
+    $('#tabla').DataTable( {
+        language: {
+            url: 'DataTables/es-mx.json'
+        }
+    } );
+} );
+    </script>
 @endsection

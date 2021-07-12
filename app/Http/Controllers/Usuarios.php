@@ -17,7 +17,7 @@ class Usuarios extends Controller
     //
 public function userRegistro(){
     $roles = Role::all();
-    return view('registro',compact('roles'));
+    return view('usuarios.registro',compact('roles'));
 }
 
     public function gUser(Request $request){
@@ -70,9 +70,9 @@ public function userRegistro(){
     }
 
     public function userList(){
-        $users = User::paginate();
+        $users = User::all();
 
-        return view('userList',compact('users'));
+        return view('usuarios.userList',compact('users'));
     }
 
     public function userEdit($id){
@@ -81,7 +81,7 @@ public function userRegistro(){
         //  return $roleN;
         $roles = Role::all();
         // return $user;
-        return view('editUser',compact('user','roles','roleN'));
+        return view('usuarios.editUser',compact('user','roles','roleN'));
     }
 
     public function userUpdate(Request $request ,User $user ){
@@ -109,13 +109,6 @@ public function userRegistro(){
         return redirect()->route('userList');
     }
 
-
-    public function busqueda(Request $request){
-        
-        $users = User::where('nombre','LIKE','%'.$request['busqueda'].'%')->orWhere('usuario','LIKE','%'.$request['busqueda'].'%')->paginate();
-
-        return view('userList',compact('users'));
-    }
     public function rolespermisos(){
         $roles= Role::all();
         $permisos = Permission::all();

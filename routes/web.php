@@ -38,9 +38,6 @@ Route::post('/usuarios/updatepassword',[Usuarios::class,'userUpdatePassword'])->
 Route::get('/usuarios/userdelete/{id}', [Usuarios::class,'userDelete'])->name('userDelete')->middleware('can:userAdmin');
 
 Route::get('/usuarios/useractive/{id}', [Usuarios::class,'userActive'])->name('userActive')->middleware('can:userAdmin');
-
-Route::post('/usuarios',[Usuarios::class,'busqueda'])->name('userSearch')->middleware('can:userAdmin');
-
 Route::get('/usuarios/rolespermisos', [Usuarios::class,'rolespermisos'])->name('rolespermisos')->middleware('can:userAdmin');
 
 Route::post('/usuarios/rolespermisos/nuevoRol',[Usuarios::class,'crearRol'])->name('nuevoRol')->middleware('can:userAdmin');
@@ -49,7 +46,8 @@ Route::get('/usuarios/rolespermisos/editRol/{id}',[Usuarios::class,'editRol'])->
 
 Route::post('/usuarios/rolespermisos/updateRol',[Usuarios::class,'updateRol'])->name('updateRol')->middleware('can:userAdmin');
 
-Route::get('/alumnos',[Alumnos::class,'listAlumnos'])->name('userList')->middleware('auth');
+Route::get('/alumnos',[Alumnos::class,'listAlumnos'])->name('alumnoList')->middleware('auth');
 
+Route::view('/alumnos/nuevo', 'alumnos.registro')->name('regisAlumno');
 
 ?>
