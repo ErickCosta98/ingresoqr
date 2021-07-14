@@ -13,6 +13,7 @@
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}" defer></script>
     <script src="{{ asset('js/jquery-1.11.2.min.js') }}"></script>
     <script src="{{ asset('DataTables/datatables.min.js') }}"></script>
+    <script src="{{ asset('davidshimjs-qrcodejs-04f46c6/qrcode.min.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

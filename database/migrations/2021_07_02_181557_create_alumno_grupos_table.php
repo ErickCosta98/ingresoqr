@@ -17,7 +17,7 @@ class CreateAlumnoGruposTable extends Migration
             $table->unsignedBigInteger('fk_alumnoid');
             $table->unsignedBigInteger('fk_grupoid');
             $table->foreign('fk_alumnoid')->references('id')->on('alumnos');
-            $table->foreign('fk_grupoid')->references('id_grupo')->on('grupos');
+            $table->foreign('fk_grupoid')->references('id')->on('grupos');
             $table->timestamps();
         });
     }

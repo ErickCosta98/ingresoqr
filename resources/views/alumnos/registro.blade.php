@@ -25,6 +25,14 @@
         <input type="radio" name="auto" id="auto" value="0" >NO
         </label>
         </div>
+        <div class="form-group">
+          <label for=""></label>
+          <select class="form-control" name="" id="">
+              @foreach (DB::select('select * from grupos') as $item)
+              <option value="{{$item->id}}">{{$item->nombreGrupo}}</option>
+              @endforeach
+          </select>
+        </div>
         <input type="submit" value="Guardar">
     </form>
 @endsection

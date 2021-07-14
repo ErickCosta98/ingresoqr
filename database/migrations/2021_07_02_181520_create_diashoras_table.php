@@ -16,10 +16,10 @@ class CreateDiashorasTable extends Migration
         Schema::create('diashoras', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('fk_grupoid');
-            $table->foreign('fk_grupoid')->references('id_grupo')->on('grupos');
+            $table->foreign('fk_grupoid')->references('id')->on('grupos');
             $table->string('nombreDia');
-            $table->time('entrada');
-            $table->time('salida');
+            $table->time('entrada',$precision = 0);
+            $table->time('salida',$precision = 0);
             $table->timestamps();
         });
     }

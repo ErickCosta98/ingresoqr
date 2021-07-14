@@ -3,7 +3,7 @@
 
 @section('contenido')
 <a href="{{ route('alumnoList')}}">Alumnos</a>
-<form action="{{ route('alumnoUpdate',$alumno) }}" method="post">
+<form action="{{ route('alumnoUpdate',$alumno ) }}" method="post">
     @csrf
     @method('put')
     <label for="">Nombre</label>
@@ -23,4 +23,47 @@
     </div>
     <input type="submit" value="Guardar">
 </form>
+<div>
+    <input id="text" type="hidden" value="{{$alumno->matricula}}" style="width:80%" /><br />
+    <div id="qrcode"></div>
+    
+
+</div>
+
+@endsection
+
+@section('js')
+
+<script>
+    $(document).ready(function() {
+        var qrcode = new QRCode("qrcode");
+
+function makeCode () {    
+    var elText = document.getElementById("text");
+  
+  if (!elText.value) {
+    alert("Input a text");
+    elText.focus();
+    return;
+  }
+  
+  qrcode.makeCode(elText.value);
+}
+
+makeCode();
+
+$("#text").
+  on("blur", function () {
+    makeCode();
+  }).
+  on("keydown", function (e) {
+    if (e.keyCode == 13) {
+      makeCode();
+    }
+  });
+    });
+    
+
+</script>
+    
 @endsection
