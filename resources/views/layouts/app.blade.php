@@ -24,8 +24,32 @@
     <link rel="stylesheet" href="{{ asset('DataTables/datatables.min.css') }}">
 
 </head>
-<body>
-    
+<body class="bg-secondary">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+              @guest
+              <li class="nav-item">
+                <a href="{{ route('welcome') }}" class="nav-link">Administrador</a>
+              </li>
+              @endguest
+              @can('home')
+              
+              @can('userAdmin')
+              <li><a  class="nav-link" href="{{ route('userList')}}">Usuarios</a></li>
+              @endcan
+              <li><a   class="nav-link" href="{{ route('alumnoList')}}">Alumnos</a></li>
+              <li><a   class="nav-link" href="{{ route('grupoList')}}">Grupos</a></li>
+            @yield('nav')
+            <li><form action="{{ route('logout') }}" method="post"> @csrf <a   class="nav-link" href="#" onclick="this.closest('form').submit()">Logout</a></form></li>
+
+            @endcan
+          </ul>
+        </div>
+      </nav>
     
 
         <main class="py-4">

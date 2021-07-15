@@ -52,7 +52,7 @@ public function userRegistro(){
         
         $request->session()->regenerate();
         
-        return redirect()->route('home');
+        return redirect()->route('alumnoList');
         }
     }
         throw ValidationValidationException::withMessages([

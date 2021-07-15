@@ -1,12 +1,11 @@
 @extends('layouts.app')
 
+@section('nav')
+
+@endsection
 @section('contenido')
 
-<pre>{{Auth::user()->usuario}}</pre>
+
 {{-- <a href="{{ route('registro')}}">Registro de nuevo ususario</a> --}}
-@can('userAdmin')
-<a href="{{ route('userList')}}">Usuarios</a>
-@endcan
-<a href="{{ route('alumnoList')}}">Alumnos</a>
-<form action="{{ route('logout') }}" method="post"> @csrf <a href="#" onclick="this.closest('form').submit()">Logout</a></form>
+
 @endsection

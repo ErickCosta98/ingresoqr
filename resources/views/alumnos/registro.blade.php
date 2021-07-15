@@ -2,37 +2,48 @@
 
 
 @section('contenido')
-@if (session('info'))
-    <div class="alert alert-primary" role="alert">
-        <strong>{{session('info')}}</strong>
-    </div>
-@endif
-<a href="{{ route('alumnoList')}}">Alumnos</a>
+<div class="container-fluid " >
+  <div class="col-sm-6 mx-auto">
+<div class="card-group">
+  <div class="card">
+    <div class="card-body">
+        <h1>Nuevo alumno</h1>
+        @if (session('info'))
+        <div class="alert alert-primary" role="alert">
+            <strong>{{ session('info') }}</strong>
+        </div>
+    @endif
     <form action="{{ route('alumnoSave') }}" method="POST">
         @csrf
         <label for="">Nombre</label>
-        <input type="text" name="nombre" id="nombre">
-        <label for="">Apellido paterno</label>
-        <input type="text" name="apelPat" id="apelPat">
+        <input class="form-control" type="text" name="nombre" id="nombre">
+        <label  for="">Apellido paterno</label>
+        <input class="form-control" type="text" name="apelPat" id="apelPat">
         <label for="">Apellido materno</label>
-        <input type="text" name="apelMat" id="apelMat">
+        <input class="form-control" type="text" name="apelMat" id="apelMat">
         <label for="auto" class="col-sm-2 control-label">¿Tiene auto?</label>
         <div class="col-sm-10">
-        <label class="radio-inline">
-        <input type="radio" name="auto" id="auto" value="1" checked>SI
-        </label>
-        <label class="radio-inline">
-        <input type="radio" name="auto" id="auto" value="0" >NO
-        </label>
+            <label class="radio-inline">
+                <input type="radio" name="auto" id="auto" value="1" checked>SI
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="auto" id="auto" value="0">NO
+            </label>
         </div>
         <div class="form-group">
-          <label for=""></label>
-          <select class="form-control" name="" id="">
-              @foreach (DB::select('select * from grupos') as $item)
-              <option value="{{$item->id}}">{{$item->nombreGrupo}}</option>
-              @endforeach
-          </select>
+            <label for="">Grupos</label>
+            <select class="form-control" name="grupo" id="grupo">
+                @foreach (DB::select('select * from grupos') as $item)
+                    <option value="{{ $item->id }}">{{ $item->nombreGrupo }}</option>
+                @endforeach
+            </select>
         </div>
         <input type="submit" value="Guardar">
     </form>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+    
 @endsection
