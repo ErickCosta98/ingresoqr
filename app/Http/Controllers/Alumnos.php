@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
+use App\Models\alumno_grupo;
 use App\Models\Alumnos as ModelsAlumnos;
 use Illuminate\Http\Request;
 
@@ -16,9 +17,6 @@ class Alumnos extends Controller
     }
 
     public function save(Request $request){
-        /** Validate name field */
-        // return $request;
-
         $alumno_id = Helper::IDGenerator(new ModelsAlumnos, 'matricula', 8 , 'MTR'); /** Generate id */
         $q = new ModelsAlumnos();
         $q->matricula = $alumno_id;
@@ -27,6 +25,11 @@ class Alumnos extends Controller
         $q->apelMat = $request->apelMat;
         $q->automovil = $request->auto;
         $save =  $q->save();
+        $id = $q->get()->last();
+        $alumnogrupo = new alumno_grupo();
+        $alumnogrupo->fk_alumnoid = $id->id;
+        $alumnogrupo->fk_grupoid = $request->grupo;
+        $alumnogrupo->save();
         // return $alumno_id;
         if($save){
             return redirect()->route('regisAlumno')->with('info','New studen has been added');
@@ -36,6 +39,7 @@ class Alumnos extends Controller
     }
     public function dtUpdate($id){
         $alumno= ModelsAlumnos::find($id);
+        
         return view('alumnos.edit',compact('alumno'));
     }
     public function update(Request $request, ModelsAlumnos $alumno) {

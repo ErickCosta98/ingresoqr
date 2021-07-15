@@ -18,6 +18,8 @@
               {{-- <th>id</th> --}}
               <th>Matricula</th>
               <th>Nombre</th>
+              <th>Apellido paterno</th>
+              <th>Apellido materno</th>
               <th>Automovil</th>
               <th>modificar</th>
               <th>Modificar estado</th>
@@ -29,6 +31,8 @@
               {{-- <td>{{$alumno->id}}</td> --}}
               <td>{{$alumno->matricula}}</td>
               <td>{{$alumno->nombre}}</td>
+              <td>{{$alumno->apelPat}}</td>
+              <td>{{$alumno->apelMat}}</td>
               @if ($alumno->automovil == 1)
                   <td><label >si</label></td>
               @else
