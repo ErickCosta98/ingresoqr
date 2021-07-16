@@ -16,12 +16,13 @@ class gruposController extends Controller
 
     public function guardar(Request $request)
     {
-        // return count($request->dias);
+        // $grup = new grupos();
+        //  return $grup->get()->last()->value('id');
 
         $grup = new grupos();
         $grup->nombreGrupo = $request->nombreG;
         $grup->save();
-        $id = $grup->get()->last();
+        $id = $grup->get()->last()->value('id');
         // return $id;
         for ($i = 0; $i < count($request->dias); $i++) {
 

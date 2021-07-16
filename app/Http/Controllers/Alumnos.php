@@ -6,6 +6,7 @@ use App\Helpers\Helper;
 use App\Models\alumno_grupo;
 use App\Models\Alumnos as ModelsAlumnos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class Alumnos extends Controller
 {
@@ -38,8 +39,9 @@ class Alumnos extends Controller
         }
     }
     public function dtUpdate($id){
-        $alumno= ModelsAlumnos::find($id);
         
+        $alumno= DB::select('select Alumnos.*, alumno_grupos.fk_grupoid from alumno_grupos inner join Alumnos on alumno_grupos.fk_alumnoid = ?', [$id]);
+        return $alumno;
         return view('alumnos.edit',compact('alumno'));
     }
     public function update(Request $request, ModelsAlumnos $alumno) {
