@@ -17,7 +17,7 @@ class CreateDiashorasTable extends Migration
             $table->id();
             $table->unsignedBigInteger('fk_grupoid');
             $table->foreign('fk_grupoid')->references('id')->on('grupos');
-            $table->string('nombreDia');
+            $table->integer('nombreDia');
             $table->time('entrada',$precision = 0);
             $table->time('salida',$precision = 0);
             $table->timestamps();

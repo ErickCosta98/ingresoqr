@@ -10,12 +10,13 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}" defer></script>
     <script src="{{ asset('js/jquery-1.11.2.min.js') }}"></script>
     <script src="{{ asset('DataTables/datatables.min.js') }}"></script>
     <script src="{{ asset('davidshimjs-qrcodejs-04f46c6/qrcode.min.js') }}"></script>
-
     <!-- Fonts -->
+
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
@@ -40,6 +41,7 @@
               
               @can('userAdmin')
               <li><a  class="nav-link" href="{{ route('userList')}}">Usuarios</a></li>
+              <li><a  class="nav-link" href="{{ route('rolespermisos')}}">Roles</a></li>
               @endcan
               <li><a   class="nav-link" href="{{ route('alumnoList')}}">Alumnos</a></li>
               <li><a   class="nav-link" href="{{ route('grupoList')}}">Grupos</a></li>

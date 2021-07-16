@@ -11,7 +11,6 @@
         </div>    
         <div class="row">
         <a href="{{ route('userRegistro') }}" class="btn btn-primary">Nuevo registro</a>
-        <a href="{{ route('rolespermisos')}}" class="btn btn-primary">rolespermisos</a>
       </div>
         <div class="row table-reponsive">
       <table class="table table-light table-striped" id="tabla">

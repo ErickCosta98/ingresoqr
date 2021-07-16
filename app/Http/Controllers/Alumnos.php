@@ -33,29 +33,32 @@ class Alumnos extends Controller
         $alumnogrupo->save();
         // return $alumno_id;
         if($save){
-            return redirect()->route('regisAlumno')->with('info','New studen has been added');
+            return redirect()->route('regisAlumno')->with('info','Nuevo estudiante agregado');
         }else{
-            return redirect()->route('regisAlumno')->with('info','Something went wrong');
+            return redirect()->route('regisAlumno')->with('info','error');
         }
     }
     public function dtUpdate($id){
-        
-        $alumno= DB::select('select Alumnos.*, alumno_grupos.fk_grupoid from alumno_grupos inner join Alumnos on alumno_grupos.fk_alumnoid = ?', [$id]);
-        return $alumno;
-        return view('alumnos.edit',compact('alumno'));
+        $alumno = ModelsAlumnos::find($id);
+        $gid = alumno_grupo::where('fk_alumnoid',$id)->value('fk_grupoid');
+        // return $gid;
+        // $alumno = DB::select('select Alumnos.*, alumno_grupos.fk_grupoid from alumno_grupos inner join Alumnos on alumno_grupos.fk_alumnoid = ?', [$id]);
+        // return $alumno
+        return view('alumnos.edit',compact('alumno','gid'));
     }
     public function update(Request $request, ModelsAlumnos $alumno) {
-        // return $alumno;
+        // return date('N');
         $alumno->nombre = $request->nombre;
         $alumno->apelPat = $request->apelPat;
         $alumno->apelMat = $request->apelMat;
         $alumno->automovil = $request->auto;
         $alumno->save();
+        DB::update('update alumno_grupos set fk_grupoid = ? where fk_alumnoid = ?', [$request->grupo,$alumno->id]);
         return redirect()->route('alumnoList');
     }
 
     public function delete($id){
         ModelsAlumnos::where('id',$id)->update(['estado' => '0']);
-        return redirect()->route('alumnoList');
+        return redirect()->route('alumnoList')->with('success','Alumno Eliminado');
     }
 }

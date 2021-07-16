@@ -28,57 +28,57 @@
                     <tr>
                         <td scope="row">lunes</td>
                         <td>
-                            <input type="time" id="horaEntrada[]" name="horaEntrada[]" value="<?php foreach($diashoras as  $dia) { if($dia->nombreDia == 'lunes' ){ echo $dia->entrada;} } ?>" >
+                            <input type="time" id="horaEntrada[]" name="horaEntrada[]" value="<?php foreach($diashoras as  $dia) { if($dia->nombreDia == 1 ){ echo $dia->entrada;} } ?>" >
                         </td>
                         <td>
-                            <input type="time" id="horSalida[]" name="horSalida[]" value="<?php foreach($diashoras as  $dia) { if($dia->nombreDia == 'lunes'){ echo $dia->salida; }} ?>" >
+                            <input type="time" id="horSalida[]" name="horSalida[]" value="<?php foreach($diashoras as  $dia) { if($dia->nombreDia == 1){ echo $dia->salida; }} ?>" >
                         </td>
                         <td>
-                            <input type="checkbox" name="dias[]" id="dias[]" value="lunes"  <?php foreach($diashoras as  $dia) { if($dia->nombreDia == 'lunes'){ echo ' checked';} } ?>>
+                            <input type="checkbox" name="dias[]" id="dias[]" value="1"  <?php foreach($diashoras as  $dia) { if($dia->nombreDia == 1){ echo ' checked';} } ?>>
                  </tr>
                     <tr>
                         <td scope="row">martes</td>
                         <td>
-                            <input type="time" id="horaEntrada[]" name="horaEntrada[]" value="<?php foreach($diashoras as  $dia) { if($dia->nombreDia == 'martes'){ echo $dia->entrada;} } ?>" >
+                            <input type="time" id="horaEntrada[]" name="horaEntrada[]" value="<?php foreach($diashoras as  $dia) { if($dia->nombreDia == 2){ echo $dia->entrada;} } ?>" >
                         </td>
                         <td>
-                            <input type="time" id="horSalida[]" name="horSalida[]" value="<?php foreach($diashoras as  $dia) { if($dia->nombreDia == 'martes'){ echo $dia->salida; }} ?>" >
+                            <input type="time" id="horSalida[]" name="horSalida[]" value="<?php foreach($diashoras as  $dia) { if($dia->nombreDia == 2){ echo $dia->salida; }} ?>" >
                         </td>
                         <td>
-                            <input type="checkbox" name="dias[]" id="dias[]"  value="martes" <?php foreach($diashoras as  $dia) { if($dia->nombreDia == 'martes'){ echo ' checked';} } ?> >
+                            <input type="checkbox" name="dias[]" id="dias[]"  value="2" <?php foreach($diashoras as  $dia) { if($dia->nombreDia == 2){ echo ' checked';} } ?> >
                  </tr>
                     <tr>
                         <td scope="row">miercoles</td>
                         <td>
-                            <input type="time" id="horaEntrada[]" name="horaEntrada[]" value="<?php foreach ($diashoras as  $dia) { if($dia->nombreDia == 'miercoles'){ echo $dia->entrada;} } ?>" >
+                            <input type="time" id="horaEntrada[]" name="horaEntrada[]" value="<?php foreach ($diashoras as  $dia) { if($dia->nombreDia == 3){ echo $dia->entrada;} } ?>" >
                         </td>
                         <td>
-                            <input type="time" id="horSalida[]" name="horSalida[]" value="<?php foreach($diashoras as  $dia) { if($dia->nombreDia == 'miercoles'){ echo $dia->salida; }} ?>" >
+                            <input type="time" id="horSalida[]" name="horSalida[]" value="<?php foreach($diashoras as  $dia) { if($dia->nombreDia == 3){ echo $dia->salida; }} ?>" >
                         </td>
                         <td>
-                            <input type="checkbox" name="dias[]" id="dias[]"  value="miercoles" <?php foreach($diashoras as  $dia) { if($dia->nombreDia == 'miercoles'){ echo'checked';} }?> >
+                            <input type="checkbox" name="dias[]" id="dias[]"  value="3" <?php foreach($diashoras as  $dia) { if($dia->nombreDia == 3){ echo'checked';} }?> >
                  </tr>
                     <tr>
                         <td scope="row">jueves</td>
                         <td>
-                            <input type="time" id="horaEntrada[]" name="horaEntrada[]" value="<?php foreach ($diashoras as  $dia) { if($dia->nombreDia == 'jueves'){ echo $dia->entrada;} } ?>" >
+                            <input type="time" id="horaEntrada[]" name="horaEntrada[]" value="<?php foreach ($diashoras as  $dia) { if($dia->nombreDia == 4){ echo $dia->entrada;} } ?>" >
                         </td>
                         <td>
-                            <input type="time" id="horSalida[]" name="horSalida[]" value="<?php foreach ($diashoras as  $dia) { if($dia->nombreDia == 'jueves'){ echo $dia->salida; }} ?>" >
+                            <input type="time" id="horSalida[]" name="horSalida[]" value="<?php foreach ($diashoras as  $dia) { if($dia->nombreDia == 4){ echo $dia->salida; }} ?>" >
                         </td>
                         <td>
-                            <input type="checkbox" name="dias[]" id="dias[]"  value="jueves"<?php foreach ($diashoras as  $dia) { if($dia->nombreDia == 'jueves'){ echo ' checked';} } ?> >
+                            <input type="checkbox" name="dias[]" id="dias[]"  value="4"<?php foreach ($diashoras as  $dia) { if($dia->nombreDia == 4){ echo ' checked';} } ?> >
                  </tr>
                     <tr>
                         <td scope="row">viernes</td>
                         <td>
-                            <input type="time" id="horaEntrada[]" name="horaEntrada[]" value="<?php foreach ($diashoras as  $dia) { if($dia->nombreDia == 'viernes'){ echo $dia->entrada;} } ?>" >
+                            <input type="time" id="horaEntrada[]" name="horaEntrada[]" value="<?php foreach ($diashoras as  $dia) { if($dia->nombreDia == 5){ echo $dia->entrada;} } ?>" >
                         </td>
                         <td>
-                            <input type="time" id="horSalida[]" name="horSalida[]" value="<?php foreach ($diashoras as  $dia) { if($dia->nombreDia == 'viernes'){ echo $dia->salida; }} ?>" >
+                            <input type="time" id="horSalida[]" name="horSalida[]" value="<?php foreach ($diashoras as  $dia) { if($dia->nombreDia == 5){ echo $dia->salida; }} ?>" >
                         </td>
                         <td>
-                            <input type="checkbox" name="dias[]" id="dias[]"   value="viernes"<?php foreach ($diashoras as  $dia) { if($dia->nombreDia == 'viernes'){ echo'checked';} } ?>>
+                            <input type="checkbox" name="dias[]" id="dias[]"   value="5"<?php foreach ($diashoras as  $dia) { if($dia->nombreDia == 5){ echo'checked';} } ?>>
                  </tr>
     
                 </tbody>

@@ -23,7 +23,7 @@ class grupoSeeder extends Seeder
 
         diashoras::create([
             'fk_grupoid' => grupos::get()->last()->value('id'),
-            'nombreDia' => 'lunes',
+            'nombreDia' => 1,
             'entrada' => '11:00',
             'salida'  =>  '13:00',
          ]);

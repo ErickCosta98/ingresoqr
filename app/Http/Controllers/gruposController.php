@@ -22,11 +22,11 @@ class gruposController extends Controller
         $grup = new grupos();
         $grup->nombreGrupo = $request->nombreG;
         $grup->save();
-        $id = $grup->get()->last()->value('id');
+        $id = $grup->get()->last();
         // return $id;
         for ($i = 0; $i < count($request->dias); $i++) {
 
-            if ($request->dias[$i] == 'lunes') {
+            if ($request->dias[$i] == 1) {
                 $diah = new diashoras();
                 $diah->fk_grupoid = $id->id;
                 $diah->nombreDia = $request->dias[$i];
@@ -34,7 +34,7 @@ class gruposController extends Controller
                 $diah->salida = $request->horSalida[0] ;
                 $diah->save();
             }
-            if ($request->dias[$i] == 'martes') {
+            if ($request->dias[$i] == 2) {
                 $diah = new diashoras();
                 $diah->fk_grupoid = $id->id;
                 $diah->nombreDia = $request->dias[$i];
@@ -42,7 +42,7 @@ class gruposController extends Controller
                 $diah->salida = $request->horSalida[1] ;
                 $diah->save();
             }
-            if ($request->dias[$i] == 'miercoles') {
+            if ($request->dias[$i] == 3) {
 
                 $diah = new diashoras();
                 $diah->fk_grupoid = $id->id;
@@ -51,7 +51,7 @@ class gruposController extends Controller
                 $diah->salida = $request->horSalida[2] ;
                 $diah->save();
             }
-            if ($request->dias[$i] == 'jueves') {
+            if ($request->dias[$i] == 4) {
 
                 $diah = new diashoras();
                 $diah->fk_grupoid = $id->id;
@@ -60,7 +60,7 @@ class gruposController extends Controller
                 $diah->salida = $request->horSalida[3] ;
                 $diah->save();
             }
-            if ($request->dias[$i] == 'viernes') {
+            if ($request->dias[$i] == 5) {
 
                 $diah = new diashoras();
                 $diah->fk_grupoid = $id->id;
@@ -108,7 +108,7 @@ class gruposController extends Controller
        
         for ($i=0; $i < count($request->dias); $i++) { 
             $auth = diashoras::where('fk_grupoid',$grupo->id)->where('nombreDia',$request->dias[$i])->get();
-            if ($request->dias[$i] == 'lunes') {
+            if ($request->dias[$i] == 1) {
                 if (count($auth) > 0) {
                 diashoras::where('fk_grupoid',$grupo->id)->where('nombreDia',$request->dias[$i])->update([
                     'nombreDia' => $request->dias[$i],
@@ -124,7 +124,7 @@ class gruposController extends Controller
                 $diah->save();
             }
             }
-            if ($request->dias[$i] == 'martes') {
+            if ($request->dias[$i] == 2) {
                 if (count($auth)>0) {
                 diashoras::where('fk_grupoid',$grupo->id)->where('nombreDia',$request->dias[$i])->update([
                     'nombreDia' => $request->dias[$i],
@@ -140,7 +140,7 @@ class gruposController extends Controller
                 $diah->save();
             }
             }
-            if ($request->dias[$i] == 'miercoles') {
+            if ($request->dias[$i] == 3) {
                 if (count($auth)>0) {
                 diashoras::where('fk_grupoid',$grupo->id)->where('nombreDia',$request->dias[$i])->update([
                     'nombreDia' => $request->dias[$i],
@@ -156,7 +156,7 @@ class gruposController extends Controller
                 $diah->save();
             }
             }
-            if ($request->dias[$i] == 'jueves') {
+            if ($request->dias[$i] == 4) {
                 if (count($auth)>0) {
                 diashoras::where('fk_grupoid',$grupo->id)->where('nombreDia',$request->dias[$i])->update([
                     'nombreDia' => $request->dias[$i],
@@ -172,7 +172,7 @@ class gruposController extends Controller
                 $diah->save();
             }
             }
-            if ($request->dias[$i] == 'viernes') {
+            if ($request->dias[$i] == 5) {
                 if (count($auth)>0) {
                 diashoras::where('fk_grupoid',$grupo->id)->where('nombreDia',$request->dias[$i])->update([
                     'nombreDia' => $request->dias[$i],

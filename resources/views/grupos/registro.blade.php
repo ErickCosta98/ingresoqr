@@ -33,7 +33,7 @@
                             <input type="time" id="horSalida[]" name="horSalida[]"  >
                         </td>
                         <td>
-                            <input type="checkbox" name="dias[]" id="dias[]" value="lunes" >
+                            <input type="checkbox" name="dias[]" id="dias[]" value="1" >
                     </tr>
                     <tr>
                         <td scope="row">martes</td>
@@ -44,7 +44,7 @@
                             <input type="time" id="horSalida[]" name="horSalida[]"  >
                         </td>
                         <td>
-                            <input type="checkbox" name="dias[]" id="dias[]" value="martes" >
+                            <input type="checkbox" name="dias[]" id="dias[]" value="2" >
                     </tr>
                     <tr>
                         <td scope="row">miercoles</td>
@@ -55,7 +55,7 @@
                             <input type="time" id="horSalida[]" name="horSalida[]"  >
                         </td>
                         <td>
-                            <input type="checkbox" name="dias[]" id="dias[]" value="miercoles" >
+                            <input type="checkbox" name="dias[]" id="dias[]" value="3" >
                     </tr>
                     <tr>
                         <td scope="row">jueves</td>
@@ -66,7 +66,7 @@
                             <input type="time" id="horSalida[]" name="horSalida[]"  >
                         </td>
                         <td>
-                            <input type="checkbox" name="dias[]" id="dias[]" value="jueves" >
+                            <input type="checkbox" name="dias[]" id="dias[]" value="4" >
                     </tr>
                     <tr>
                         <td scope="row">viernes</td>
@@ -77,7 +77,7 @@
                             <input type="time" id="horSalida[]" name="horSalida[]"  >
                         </td>
                         <td>
-                            <input type="checkbox" name="dias[]" id="dias[]" value="viernes" >
+                            <input type="checkbox" name="dias[]" id="dias[]" value="5" >
                     </tr>
     
                 </tbody>
@@ -89,5 +89,6 @@
 </div>
 </div>
 </div>
+
     
 @endsection

@@ -35,7 +35,7 @@
           <label for="">Grupos</label>
           <select class="form-control" name="grupo" id="grupo">
               @foreach (DB::select('select * from grupos') as $item)
-                  <option value="{{ $item->id }}"   <?php if ($item->id = $alumno->fk_grupoid) { echo 'selected'; } ?> >{{ $item->nombreGrupo }}</option>
+                  <option value="{{ $item->id }}" <?php if($item->id == $gid)echo 'selected';?>>{{ $item->nombreGrupo }}</option>
               @endforeach
           </select>
       </div>
