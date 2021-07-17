@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    @yield('meta')
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -43,8 +43,15 @@
               <li><a  class="nav-link" href="{{ route('userList')}}">Usuarios</a></li>
               <li><a  class="nav-link" href="{{ route('rolespermisos')}}">Roles</a></li>
               @endcan
+              @can('alumnoReporte')
+              <li><a   class="nav-link" href="{{ route('reporte')}}">Reportes</a></li>
+              @endcan
+              @can('alumnoRegistro')
               <li><a   class="nav-link" href="{{ route('alumnoList')}}">Alumnos</a></li>
+              @endcan
+              @can('horariosAdmin')
               <li><a   class="nav-link" href="{{ route('grupoList')}}">Grupos</a></li>
+              @endcan
             @yield('nav')
             <li><form action="{{ route('logout') }}" method="post"> @csrf <a   class="nav-link" href="#" onclick="this.closest('form').submit()">Logout</a></form></li>
 

@@ -51,8 +51,7 @@ public function userRegistro(){
         if(Auth::attempt(['usuario' => $credenciales['usuario'], 'password' => $credenciales['password']])){
         
         $request->session()->regenerate();
-        
-        return redirect()->route('alumnoList');
+        return redirect()->route('homes');
         }
     }
         throw ValidationValidationException::withMessages([

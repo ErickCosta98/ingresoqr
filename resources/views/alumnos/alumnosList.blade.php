@@ -38,7 +38,7 @@
               @else
               <td><label >no</label></td>
               @endif
-              <td><a href="{{ route('alumnoEdit', $alumno->id) }}" class="btn btn-info btn-block">Editar</a></td>  
+              <td><a href="{{ route('alumnoEdit', $alumno->id) }}" class="btn btn-info btn-block">Editar</a></td> 
               <td><a id='btnBorrar' href="{{ route('alumnoDelete', $alumno->id) }}" class="btn btn-danger btn-block" >eliminar</a></td>
           @endforeach
               </tr>
