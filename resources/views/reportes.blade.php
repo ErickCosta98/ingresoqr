@@ -2,6 +2,7 @@
 
 @section('meta')
 <meta http-equiv="refresh" content="30">
+{{-- refresca cada 30 segundos --}}
 @endsection
 
 @section('contenido')

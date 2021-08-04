@@ -17,6 +17,7 @@
 <div class="centrado ">
     
               <h1>Bienvenido  {{Auth::user()->nombre}}</h1>
+              {{-- imprimir nombre de usuario --}}
   
 </div>
 
