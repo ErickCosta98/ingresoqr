@@ -34,7 +34,7 @@
                 
             @endforeach
         </ul>
-    {{-- <form action="{{ route('nuevoPermiso') }}" method="post">
+    <form action="{{ route('nuevoPermiso') }}" method="post">
         @csrf
         <label for="">Nombre de nuevo permiso</label>
         <input type="text" name="name" id="name">
@@ -46,7 +46,7 @@
             
                 <li >{{$permiso['name']}}</li>
             @endforeach
-        </ul> --}}    
+        </ul>  
     </div>
   </div>
 </div>

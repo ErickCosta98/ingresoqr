@@ -26,7 +26,9 @@
           <form action="{{ route('loging') }}" method="POST">
             @csrf
             {{-- <img class="mb-4" src="img/bootstrap-logo.svg" alt="" width="72" height="57"> --}}
-            <h1 class="h3 mb-3 fw-normal">Admistrador</h1>
+
+            <h1 class="h3 mb-3 fw-normal">Administrador</h1>
+
         
             <div class="form-floating">
               <label for="floatingInput">Usuario</label>
@@ -36,6 +38,7 @@
             <div class="form-floating">
               <label for="floatingPassword">Contraseña</label>
               <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+            {{-- mensajes de error--}}
               @error('password'){{$message}}@enderror
             </div>
             <button class="w-100 btn btn-lg btn-primary" type="submit">Iniciar sesion</button>

@@ -31,7 +31,7 @@ class ingresoController extends Controller
                         return redirect()->route('qrscan')->with('error','Tu hora de salida ya paso');
                     }
                 }else{
-                    if(date('H:i:s',time()) <= date($value->salida)){
+                    if(date('H:i:s',time()) <= date($value->entrada)){
                         $reporte = new reportes();
                         $reporte->fecha = date('Y-m-d');
                         $reporte->entrada = date('H:i:s',time());
