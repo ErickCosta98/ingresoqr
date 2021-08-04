@@ -6,7 +6,9 @@ use App\Helpers\Helper;
 use App\Models\alumno_grupo;
 use App\Models\Alumnos as ModelsAlumnos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class Alumnos extends Controller
 {
@@ -60,5 +62,22 @@ class Alumnos extends Controller
     public function delete($id){
         ModelsAlumnos::where('id',$id)->update(['estado' => '0']);
         return redirect()->route('alumnoList')->with('success','Alumno Eliminado');
+    }
+
+
+    public function createPDF(Request $request)
+    {
+        $qrs = DB::select('select alumnos.* from alumnos inner join alumno_grupos on alumno_grupos.fk_grupoid = ? and alumnos.id = alumno_grupos.fk_alumnoid ', [$request->grupo]);
+        // return $qrs;
+        $img = '';
+        foreach ($qrs as  $qr) {
+            $img = $img.'<div class="contenedor"><img src="data:image/png;base64,'.  base64_encode(QrCode::format('png')->size(200)->generate($qr->matricula)) .'" />'.$qr->nombre." ".$qr->apelPat." ".$qr->apelMat.'</div>';
+        }
+    
+    $style = '<style> .contenedor{ margin:20px;} </style>';
+        // return $style.$img;
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadHTML($style.$img);
+        return $pdf->stream();
     }
 }

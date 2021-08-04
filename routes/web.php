@@ -4,7 +4,12 @@ use App\Http\Controllers\Alumnos;
 use App\Http\Controllers\gruposController;
 use App\Http\Controllers\ingresoController;
 use App\Http\Controllers\Usuarios;
+use App\Models\Alumnos as ModelsAlumnos;
+use Facade\FlareClient\Stacktrace\File;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,5 +75,8 @@ Route::put('/grupo/update/{grupo}',[gruposController::class,'update'])->name('gr
 
 Route::get('/verifica',[ingresoController::class,'verificarDia'])->name('verifica');
 Route::view('/reporte', 'reportes')->name('reporte')->middleware('can:alumnoReporte');
+
+
+Route::get('/qrcode',[Alumnos::class,'createPDF'])->name('pdfqr');
 
 ?>

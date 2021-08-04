@@ -26,7 +26,7 @@
           <form action="{{ route('loging') }}" method="POST">
             @csrf
             {{-- <img class="mb-4" src="img/bootstrap-logo.svg" alt="" width="72" height="57"> --}}
-            <h1 class="h3 mb-3 fw-normal">A</h1>
+            <h1 class="h3 mb-3 fw-normal">Admistrador</h1>
         
             <div class="form-floating">
               <label for="floatingInput">Usuario</label>

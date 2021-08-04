@@ -21,16 +21,7 @@ class UserSeeder extends Seeder
             'apelPat' =>  'Admin',
             'apelMat'=> 'Admin',
             'usuario' => 'Admin@admin',
-            'password' => Hash::make('Ulili2007'),
+            'password' => Hash::make('Admin2022'),
         ])->syncRoles([1]);
-
-
-        User::create([
-            'nombre' => 'Erick',
-            'apelPat' =>  'hernandez',
-            'apelMat'=> 'Costa',
-            'usuario' => 'Erick@costa',
-            'password' => Hash::make('Ulili2098'),
-        ])->syncRoles([2]);
     }
 }

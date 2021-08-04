@@ -53,7 +53,7 @@
               <li><a   class="nav-link" href="{{ route('grupoList')}}">Grupos</a></li>
               @endcan
             @yield('nav')
-            <li><form action="{{ route('logout') }}" method="post"> @csrf <a   class="nav-link" href="#" onclick="this.closest('form').submit()">Logout</a></form></li>
+            <li><form action="{{ route('logout') }}" method="post"> @csrf <a   class="nav-link" href="#" onclick="this.closest('form').submit()">Cerrar sesion</a></form></li>
 
             @endcan
           </ul>

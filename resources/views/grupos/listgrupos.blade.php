@@ -23,6 +23,7 @@
             <th>Nombre</th>
             <th>modificar</th>
             <th>Modificar estado</th>
+            <th>imprimir qr</th>
           </tr>
         </thead>
         <tbody>
@@ -33,6 +34,7 @@
             <td>{{$diahora->nombreGrupo}}</td>
             <td><a href="{{ route('grupoEdit', $diahora->id) }}" class="btn btn-info btn-block">Editar</a></td>  
             <td><a id='btnBorrar' href="{{ route('grupoDelete', $diahora->id) }}" class="btn btn-danger btn-block" >eliminar</a></td>
+            <td><a href="{{ route('pdfqr', ['grupo'=>$diahora->id]) }}" class="btn btn-primary btn-block">Imprimir</a></td>  
         @endforeach
             </tr>
         </tbody>
