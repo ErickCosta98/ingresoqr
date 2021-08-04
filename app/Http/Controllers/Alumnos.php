@@ -15,7 +15,7 @@ class Alumnos extends Controller
     //
     public function listAlumnos(){
         $alumnos = ModelsAlumnos::where('estado','1')->get();
-        return $alumnos;
+        // return $alumnos;
         return view('alumnos.alumnosList',compact('alumnos'));
     }
 
