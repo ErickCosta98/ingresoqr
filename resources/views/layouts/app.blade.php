@@ -52,6 +52,9 @@
               @can('horariosAdmin')
               <li><a   class="nav-link" href="{{ route('grupoList')}}">Grupos</a></li>
               @endcan
+              @can('registroLugares')
+              <li><a  class="nav-link" href="{{ route('vistaRegistro')}}">Lugares</a></li>
+              @endcan
             @yield('nav')
             <li><form action="{{ route('logout') }}" method="post"> @csrf <a   class="nav-link" href="#" onclick="this.closest('form').submit()">Cerrar sesion</a></form></li>
 

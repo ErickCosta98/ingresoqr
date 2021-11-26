@@ -79,4 +79,6 @@ Route::view('/reporte', 'reportes')->name('reporte')->middleware('can:alumnoRepo
 
 Route::get('/qrcode',[Alumnos::class,'createPDF'])->name('pdfqr');
 
+Route::view('/lugares', 'lugares.registro')->name('vistaRegistro')->middleware('can:registroLugares');
+
 ?>
