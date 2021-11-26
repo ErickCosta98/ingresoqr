@@ -38,7 +38,7 @@
                 @endforeach
             </select>
         </div>
-        <input type="submit" value="Guardar">
+        <input type="submit" class="btn btn-primary" value="Guardar">
     </form>
     </div>
   </div>

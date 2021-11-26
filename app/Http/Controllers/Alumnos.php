@@ -67,17 +67,48 @@ class Alumnos extends Controller
 
     public function createPDF(Request $request)
     {
-        $qrs = DB::select('select alumnos.* from alumnos inner join alumno_grupos on alumno_grupos.fk_grupoid = ? and alumnos.id = alumno_grupos.fk_alumnoid ', [$request->grupo]);
+        $qrs = DB::select('select alumnos.*,grupos.nombreGrupo from alumnos inner join grupos inner join alumno_grupos on alumno_grupos.fk_grupoid = ? and alumnos.id = alumno_grupos.fk_alumnoid and grupos.id = alumno_grupos.fk_grupoid  ', [$request->grupo]);
         // return $qrs;
         $img = '';
+        $tb = '<div><table border="1">
+        
+        <caption><h1>'.$qrs[0]->nombreGrupo.'</h1></caption>
+        <thead>
+          <tr>
+            <th>nombre</th>
+            <th>matricula</th>
+            <th>Qr</th>
+          </tr>
+        </thead>
+        <tbody>';
         foreach ($qrs as  $qr) {
-            $img = $img.'<div class="contenedor"><img src="data:image/png;base64,'.  base64_encode(QrCode::format('png')->size(200)->generate($qr->matricula)) .'" />'.$qr->nombre." ".$qr->apelPat." ".$qr->apelMat.'</div>';
+            $img = $img.'
+              <tr>
+              <td>'.$qr->nombre." ".$qr->apelPat." ".$qr->apelMat.'</td>
+              <td>'.$qr->matricula.'</td>  
+              <td><div class="mg"><img src="data:image/png;base64,'.  base64_encode(QrCode::format('png')->size(100)->generate($qr->matricula)) .'" /></div></td>   
+              ';
         }
+        $tb2='  </tr>
+        </tbody>
+      </table></div>';
+      $tb = $tb.$img.$tb2;
     
-    $style = '<style> .contenedor{ margin:20px;} </style>';
+    $style = '<style>div{
+        text-align: center;
+    } 
+    div table {
+    margin: 0 auto;
+    text-align: left;
+    }
+    div.mg{
+        margin: 5;
+    }
+    
+</style>';
         // return $style.$img;
         $pdf = App::make('dompdf.wrapper');
-        $pdf->loadHTML($style.$img);
+        $pdf->loadHTML($style.$tb);
         return $pdf->stream();
     }
 }

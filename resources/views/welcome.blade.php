@@ -47,5 +47,10 @@
           {{-- @dd($errors) --}}
       </main>
 </div>
+<style>
+  table{
+    display: inline;
+  }
+</style>
 </body>
 </html>
