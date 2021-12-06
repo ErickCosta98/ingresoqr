@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Models\alumno_grupo;
 use App\Models\Alumnos as ModelsAlumnos;
+use App\Models\lugares_asignado;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -67,46 +68,34 @@ class Alumnos extends Controller
 
     public function createPDF(Request $request)
     {
-        $qrs = DB::select('select alumnos.*,grupos.nombreGrupo from alumnos inner join grupos inner join alumno_grupos on alumno_grupos.fk_grupoid = ? and alumnos.id = alumno_grupos.fk_alumnoid and grupos.id = alumno_grupos.fk_grupoid  ', [$request->grupo]);
+        $qrs = lugares_asignado::where('status','!=','2')->where('student_name',$request->student)->get();
         // return $qrs;
         $img = '';
-        $tb = '<div><table border="1">
-        
-        <caption><h1>'.$qrs[0]->nombreGrupo.'</h1></caption>
-        <thead>
-          <tr>
-            <th>nombre</th>
-            <th>matricula</th>
-            <th>Qr</th>
-          </tr>
-        </thead>
-        <tbody>';
+        $tb = '';
         foreach ($qrs as  $qr) {
+            $json = json_encode([
+                'id' => $qr->id,
+                'Nombre' =>$qr->student_name,
+                'Fila' => $qr->seat_name,
+            ]);
             $img = $img.'
-              <tr>
-              <td>'.$qr->nombre." ".$qr->apelPat." ".$qr->apelMat.'</td>
-              <td>'.$qr->matricula.'</td>  
-              <td><div class="mg"><img src="data:image/png;base64,'.  base64_encode(QrCode::format('png')->size(100)->generate($qr->matricula)) .'" /></div></td>   
-              ';
+            <div>
+              <label><strong>'.$qr->seat_name.'</strong></label>
+              <div class="mg"><img src="data:image/png;base64,'.  base64_encode(QrCode::format('png')->size(150)->generate($json)) .'" /></div>   
+              </div>';
         }
-        $tb2='  </tr>
-        </tbody>
-      </table></div>';
+        $tb2='';
       $tb = $tb.$img.$tb2;
     
-    $style = '<style>div{
-        text-align: center;
-    } 
-    div table {
-    margin: 0 auto;
-    text-align: left;
+    $style = '<style>
+    div{
+        display: inline-block;
+        width: 320px;
+        height: 190px;
     }
-    div.mg{
-        margin: 5;
-    }
-    
+  
 </style>';
-        // return $style.$img;
+        // return $style.$tb;
         $pdf = App::make('dompdf.wrapper');
         $pdf->loadHTML($style.$tb);
         return $pdf->stream();

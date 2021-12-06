@@ -3,6 +3,7 @@
 use App\Http\Controllers\Alumnos;
 use App\Http\Controllers\gruposController;
 use App\Http\Controllers\ingresoController;
+use App\Http\Controllers\lugaresController;
 use App\Http\Controllers\Usuarios;
 use App\Models\Alumnos as ModelsAlumnos;
 use Facade\FlareClient\Stacktrace\File;
@@ -22,7 +23,8 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 |
 */
 
-Route::view('/','qrscan')->name('qrscan');
+Route::get('/',[ingresoController::class,'index'])->name('qrscan');
+
 Route::view('/login','welcome')->name('welcome');
 
 Route::view('/inicio','home')->name('homes')->middleware('can:home');
@@ -79,6 +81,9 @@ Route::view('/reporte', 'reportes')->name('reporte')->middleware('can:alumnoRepo
 
 Route::get('/qrcode',[Alumnos::class,'createPDF'])->name('pdfqr');
 
-Route::view('/lugares', 'lugares.registro')->name('vistaRegistro')->middleware('can:registroLugares');
-
+Route::get('/lugares',[lugaresController::class,'index'])->name('vistaRegistro')->middleware('can:registroLugares');
+Route::get('/ban',[lugaresController::class,'indexBan'])->name('vistaBan')->middleware('can:registroLugares');
+Route::post('/lugares/registro',[lugaresController::class,'registro'])->name('lugaresRegistro')->middleware('can:registroLugares');
+Route::post('/lugares/ban',[lugaresController::class,'ban'])->name('lugaresBan')->middleware('can:registroLugares');
+Route::get('/qr/tabla',[lugaresController::class,'tabla'])->name('tablaLugares')->middleware('can:registroLugares');
 ?>

@@ -23,5 +23,12 @@ class UserSeeder extends Seeder
             'usuario' => 'Admin@admin',
             'password' => Hash::make('Admin2022'),
         ])->syncRoles([1]);
+        User::create([
+            'nombre' => 'Oscar Hernan',
+            'apelPat' =>  'Gomez',
+            'apelMat'=> 'Porras',
+            'usuario' => 'GuapoHernan',
+            'password' => Hash::make('Admin2022'),
+        ])->syncRoles([4]);
     }
 }

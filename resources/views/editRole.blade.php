@@ -24,7 +24,7 @@
         
             <br>
             {{-- //<?phpif(strpos($roleN,$rol['name'])) echo 'checked'?> --}}
-        <input type="submit" value="Guardar">
+        <input type="submit" class="btn btn-info" value="Guardar">
     </form>
     <a href="{{ route('rolespermisos') }}" class="btn btn-primary">regresar</a>
     </div>

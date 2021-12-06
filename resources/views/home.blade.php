@@ -16,7 +16,7 @@
 @section('contenido')
 <div class="centrado ">
     
-              <h1>Bienvenido  {{Auth::user()->nombre}}</h1>
+              <h1 style="color: white;"><Strong>Bienvenido  {{Auth::user()->nombre}}</Strong></h1>
               {{-- imprimir nombre de usuario --}}
   
 </div>
