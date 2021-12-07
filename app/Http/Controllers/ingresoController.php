@@ -44,11 +44,18 @@ class ingresoController extends Controller
     public function verificarDia(Request $request){
 
         $data = json_decode($request->data);
+        // return $request->data;
         $lugar = lugares_asignado::find($data->id);
         if($lugar->status == 1){
             return redirect()->route('qrscan')->with('error',$lugar->seat_name);
 
         }else{
+            if($lugar->student_name == 'Especial'){
+                $lugar->status = '1';
+                $lugar->save();
+                return redirect()->route('qrscan')->with('success','Invitado Especial');
+                    
+            }
             $lugar->status = '1';
             $lugar->save();
             return redirect()->route('qrscan')->with('success',$lugar->seat_name);

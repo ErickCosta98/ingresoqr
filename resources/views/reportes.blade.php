@@ -5,6 +5,14 @@
 {{-- refresca cada 30 segundos --}}
 @endsection
 
+@section('style')
+    <style>
+      body{
+        
+      }
+    </style>
+@endsection
+
 @section('contenido')
 <div class="container badge-light ">
   <div class="row ">

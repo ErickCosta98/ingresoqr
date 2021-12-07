@@ -11,7 +11,17 @@
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
     }
-    
+    body {
+        width: 100%;
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* background-size: 100% 100%; */
+        /* background: rgb(2,84,65); */
+        background-image: url('../public/img/back.jpg') ;
+        background-size: cover;
+        /* background: linear-gradient(0deg, rgba(2,84,65,1) 0%, rgba(253,187,45,1) 100%) fixed; */
+  }
     </style>
 @section('contenido')
 <div class="centrado ">

@@ -6,6 +6,8 @@ use App\Http\Controllers\ingresoController;
 use App\Http\Controllers\lugaresController;
 use App\Http\Controllers\Usuarios;
 use App\Models\Alumnos as ModelsAlumnos;
+use App\Models\lugares;
+use App\Models\lugares_asignado;
 use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
@@ -75,7 +77,7 @@ Route::get('/grupo/delete/{id}', [gruposController::class,'delete'])->name('grup
 Route::get('/grupo/edit/{id}', [gruposController::class,'dtUpdate'])->name('grupoEdit')->middleware('can:horariosAdmin');
 Route::put('/grupo/update/{grupo}',[gruposController::class,'update'])->name('grupoUpdate')->middleware('can:horariosAdmin');
 
-Route::get('/verifica',[ingresoController::class,'verificarDia'])->name('verifica');
+Route::post('/verifica',[ingresoController::class,'verificarDia'])->name('verifica');
 Route::view('/reporte', 'reportes')->name('reporte')->middleware('can:alumnoReporte');
 
 
@@ -86,4 +88,14 @@ Route::get('/ban',[lugaresController::class,'indexBan'])->name('vistaBan')->midd
 Route::post('/lugares/registro',[lugaresController::class,'registro'])->name('lugaresRegistro')->middleware('can:registroLugares');
 Route::post('/lugares/ban',[lugaresController::class,'ban'])->name('lugaresBan')->middleware('can:registroLugares');
 Route::get('/qr/tabla',[lugaresController::class,'tabla'])->name('tablaLugares')->middleware('can:registroLugares');
+// Route::get('/especiales', function () {
+//     for ($i=1; $i <= 40 ; $i++) { 
+//         lugares_asignado::create([
+//             'student_name' => 'Especial',
+//             'seat_name'=> 'G-'.$i,
+//         ]);    
+//     }
+
+//     return true;
+// });
 ?>

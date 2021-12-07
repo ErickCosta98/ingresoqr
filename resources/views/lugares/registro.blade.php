@@ -2,6 +2,17 @@
 
 @section('style')
 <style>
+   body {
+        width: 100%;
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* background-size: 100% 100%; */
+        /* background: rgb(2,84,65); */
+        background-image: url('../public/img/back.jpg') ;
+        background-size: cover;
+        /* background: linear-gradient(0deg, rgba(2,84,65,1) 0%, rgba(253,187,45,1) 100%) fixed; */
+  }
  #contenedor_seat{
     margin: 10px;
         padding: 10px;
@@ -127,7 +138,7 @@ input[type="checkbox"]:hover ~ .checkmark {
                       </label>
                   </td> 
                   @elseif(in_array($lugares[$i]->row_name.'-'.$j,$ocupados))
-                  <td id="{{$lugares[$i]->row_name.'-'.$j}}" style="background-color: #00adfd; color:white;">
+                  <td id="{{$lugares[$i]->row_name.'-'.$j}}" style="background-color: #025441; color:white;">
                     <label class="cont">{{$j}}
                       {{-- <input type="checkbox" name="lugares[]" value="{{$lugares[$i]->row_name.'-'.$j}}" id="{{$lugares[$i]->row_name.'-'.$j}}" checked='checked' disabled>
                       <span class="checkmark"></span> --}}
