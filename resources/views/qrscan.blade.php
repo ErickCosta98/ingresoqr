@@ -100,12 +100,12 @@
                             </td>    
                               @else
                               @if(in_array($lugares[$i]->row_name.'-'.$j,$no_asig))
-                              <td id="{{$lugares[$i]->row_name.'-'.$j}}" style="background-color:rgb(11,52,56) ; color: white;">
+                              <td id="{{$lugares[$i]->row_name.'-'.$j}}" style="background-color:rgb(37, 37, 37) ; color: white;">
                                 <label class="cont">{{$j}}
                                 </label>
                             </td> 
                             @elseif(in_array($lugares[$i]->row_name.'-'.$j,$ocupados))
-                            <td id="{{$lugares[$i]->row_name.'-'.$j}}" style="background-color: rgb(17, 68, 63); color:white;">
+                            <td id="{{$lugares[$i]->row_name.'-'.$j}}" style="background-color: rgb(9, 66, 61); color:white;">
                               <label class="cont" >{{$j}}
                               </label>
                           </td> 
