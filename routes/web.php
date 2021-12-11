@@ -88,6 +88,8 @@ Route::get('/ban',[lugaresController::class,'indexBan'])->name('vistaBan')->midd
 Route::post('/lugares/registro',[lugaresController::class,'registro'])->name('lugaresRegistro')->middleware('can:registroLugares');
 Route::post('/lugares/ban',[lugaresController::class,'ban'])->name('lugaresBan')->middleware('can:registroLugares');
 Route::get('/qr/tabla',[lugaresController::class,'tabla'])->name('tablaLugares')->middleware('can:registroLugares');
+Route::get('/asig',[lugaresController::class,'index2'])->name('index2')->middleware('can:registroLugares');
+Route::get('/delete',[ingresoController::class,'delete'])->name('deleteSeat')->middleware('can:registroLugares');
 // Route::get('/especiales', function () {
 //     for ($i=1; $i <= 40 ; $i++) { 
 //         lugares_asignado::create([
@@ -98,4 +100,6 @@ Route::get('/qr/tabla',[lugaresController::class,'tabla'])->name('tablaLugares')
 
 //     return true;
 // });
+
+Route::get('/tab',[lugaresController::class,'tabAlumnos'])->name('tabAlumnos')->middleware('can:registroLugares');
 ?>

@@ -45,20 +45,24 @@ class ingresoController extends Controller
 
         $data = json_decode($request->data);
         // return $request->data;
-        $lugar = lugares_asignado::find($data->id);
-        if($lugar->status == 1){
-            return redirect()->route('qrscan')->with('error',$lugar->seat_name);
+        $lugar = lugares_asignado::where('seat_name',$data->Fila)->get();
+        if(count($lugar) <= 0){
+            return redirect()->route('qrscan')->with('error','Error');
+
+        }
+        if($lugar[0]->status == 1){
+            return redirect()->route('qrscan')->with('error','Asiento ocupado');
 
         }else{
-            if($lugar->student_name == 'Especial'){
-                $lugar->status = '1';
-                $lugar->save();
+            if($lugar[0]->student_name == 'Especial'){
+                $lugar[0]->status = '1';
+                $lugar[0]->save();
                 return redirect()->route('qrscan')->with('success','Invitado Especial');
                     
             }
-            $lugar->status = '1';
-            $lugar->save();
-            return redirect()->route('qrscan')->with('success',$lugar->seat_name);
+            $lugar[0]->status = '1';
+            $lugar[0]->save();
+            return redirect()->route('qrscan')->with('success','Asiento:'.$lugar[0]->seat_name);
             
         }
     //     $users = DB::select('select  diashoras.* , alumnos.id as idalumno, alumno_grupos.fk_grupoid as idgrupo  from diashoras inner join alumnos inner join alumno_grupos on alumnos.matricula = ? and alumno_grupos.fk_alumnoid = alumnos.id and diashoras.fk_grupoid = alumno_grupos.fk_grupoid' , [$request->matricula]);

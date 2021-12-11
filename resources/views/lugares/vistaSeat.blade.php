@@ -55,10 +55,10 @@
 @section('contenido')
     {{-- <img src="{{ asset('img/back.jpg') }}" alt=""> --}}
     {{-- <h1>Matricula</h1> --}}
-    <form action="{{ route('verifica') }}" method="POST">
+    {{-- <form action="{{ route('verifica') }}" method="POST">
         @csrf
         <input type="text" name="data" id="data" autocomplete="off" required autofocus>
-    </form>
+    </form> --}}
     <div class="imgcont"><img src="{{ asset('img/letras.png') }}" alt="" id="letras"></div>
 
     <div class="shadow-lg border-0 rounded-lg m-1 " id="conte">

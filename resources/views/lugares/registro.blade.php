@@ -177,8 +177,13 @@ input[type="checkbox"]:hover ~ .checkmark {
                 </tbody>
             </table>
             </div>
+            <div>
+              <label style="margin-left: 10%;"><strong> Disponibles:{{$count-($noAsigcount+$Asigcount)}}</strong></label>
+              <label style="margin-left: 50%;"><strong>Asignados:{{$Asigcount}}</strong></label>
+
+            </div>
             <div class="text-center">
-              <input class="btn btn-primary mb-5"   type="submit" value="guardar">
+              <input class="btn btn-primary mb-5"   type="submit" value="Guardar">
             </div>
             
         </form>
