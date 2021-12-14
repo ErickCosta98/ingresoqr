@@ -55,14 +55,14 @@ class ingresoController extends Controller
 
         }else{
             if($lugar[0]->student_name == 'Especial'){
-                $lugar[0]->status = '1';
-                $lugar[0]->save();
+                // $lugar[0]->status = '1';
+                // $lugar[0]->save();
                 return redirect()->route('qrscan')->with('success','Invitado Especial');
                     
             }
             $lugar[0]->status = '1';
             $lugar[0]->save();
-            return redirect()->route('qrscan')->with('success','Asiento:'.$lugar[0]->seat_name);
+            return redirect()->route('qrscan')->with('success','Asiento: '.$lugar[0]->seat_name);
             
         }
     //     $users = DB::select('select  diashoras.* , alumnos.id as idalumno, alumno_grupos.fk_grupoid as idgrupo  from diashoras inner join alumnos inner join alumno_grupos on alumnos.matricula = ? and alumno_grupos.fk_alumnoid = alumnos.id and diashoras.fk_grupoid = alumno_grupos.fk_grupoid' , [$request->matricula]);
